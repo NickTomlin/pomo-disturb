@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        h1 {
+            font-size: 6vh;
+        }
+    </style>
+</head>
+<body>
+<h1>Pomo Disturb</h1>
+<p>Hack OSX's "do not disturb" into your personal pomodoro timer</p>
+<p>
+    <a href="http://github.com/NickTomlin/pomo-disturb" data-external>Issues? Let me know @ github</a>
+</p>
+<script>
+  const {shell} = require('electron')
+  const link = document.querySelector('[data-external]').addEventListener('click', function (event) {
+    event.preventDefault()
+    const url = event.target.href
+    shell.openExternal(url)
+  })
+</script>
+</body>
+</html>
