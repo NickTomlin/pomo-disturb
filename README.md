@@ -26,4 +26,5 @@ npm start
 Prior art
 ---
 
+- [do not disturb](https://github.com/sindresorhus/do-not-disturb)
 - [Productivity Tip: Pomodoro + Do Not Disturb AppleScript.](https://medium.com/@mrdoro/productivity-tip-pomodoro-donotdisturb-applescript-c8a069e92bb4)
