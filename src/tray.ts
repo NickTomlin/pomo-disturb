@@ -1,6 +1,6 @@
-import {Tray} from 'electron'
-import {displayTime} from "./src/util"
-import {disabledIcon, enabledIcon} from "./src/config"
+import { Tray } from "electron"
+import { displayTime } from "./src/util"
+import { disabledIcon, enabledIcon } from "./src/config"
 
 class DisturbTray {
   private tray: Tray
@@ -9,17 +9,17 @@ class DisturbTray {
     this.tray = tray
   }
 
-  setTitle (currentInterval: number) {
+  setTitle(currentInterval: number) {
     this.tray.setTitle(displayTime(currentInterval))
   }
 
-  enable (currentInterval: number) {
+  enable(currentInterval: number) {
     this.tray.setImage(enabledIcon)
     this.setTitle(currentInterval)
   }
 
-  disable () {
-    this.tray.setTitle('')
+  disable() {
+    this.tray.setTitle("")
     this.tray.setImage(disabledIcon)
   }
 }

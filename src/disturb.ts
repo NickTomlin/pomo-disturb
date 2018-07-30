@@ -1,6 +1,6 @@
 import Timer = NodeJS.Timer
-import {enable, disable} from "@sindresorhus/do-not-disturb"
-import {oneSecond} from "./config"
+import { enable, disable } from "@sindresorhus/do-not-disturb"
+import { oneSecond } from "./config"
 import DisturbTray from "./tray"
 
 class Disturb {
@@ -43,8 +43,8 @@ class Disturb {
   }
 
   attachListeners() {
-    this.menubar.tray.on('click', this.handleClick)
-    this.menubar.app.on('quit', this.clearSnooze)
+    this.menubar.tray.on("click", this.handleClick)
+    this.menubar.app.on("quit", this.clearSnooze)
   }
 }
 
