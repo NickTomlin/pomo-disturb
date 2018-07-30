@@ -1,5 +1,5 @@
 import Timer = NodeJS.Timer
-import { enable, disable } from "@sindresorhus/do-not-disturb"
+import { disable, enable } from "@sindresorhus/do-not-disturb"
 import { oneSecond } from "./config"
 import DisturbTray from "./tray"
 
@@ -15,7 +15,7 @@ class Disturb {
     this.tray = new DisturbTray(menubar.tray)
   }
 
-  handleClick = async () => {
+  public handleClick = async () => {
     if (this.currentSnooze) {
       await this.clearSnooze()
     } else {
@@ -33,7 +33,7 @@ class Disturb {
     }
   }
 
-  clearSnooze = async () => {
+  public clearSnooze = async () => {
     if (this.currentSnooze) {
       global.clearInterval(this.currentSnooze)
     }
@@ -42,7 +42,7 @@ class Disturb {
     await disable()
   }
 
-  attachListeners() {
+  public attachListeners() {
     this.menubar.tray.on("click", this.handleClick)
     this.menubar.app.on("quit", this.clearSnooze)
   }

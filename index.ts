@@ -1,6 +1,6 @@
 import Menubar from 'menubar'
-import Disturb from './src/disturb'
 import {defaultFocusPeriod, disabledIcon} from './src/config'
+import Disturb from './src/disturb'
 
 const menubar = Menubar({
   icon: disabledIcon,

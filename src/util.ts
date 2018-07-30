@@ -1,10 +1,10 @@
-function displayNumber(number: number): string {
-  return number <= 9 ? `0${number}` : `${number}`
+function displayNumber(num: number): string {
+  return num <= 9 ? `0${num}` : `${num}`
 }
 
 function displayTime(millisecondsLeft: number) {
-  let minutes = Math.floor(millisecondsLeft / 60 / 1000)
-  let seconds = (millisecondsLeft / 1000) % 60
+  const minutes = Math.floor(millisecondsLeft / 60 / 1000)
+  const seconds = (millisecondsLeft / 1000) % 60
 
   return `${displayNumber(minutes)}:${displayNumber(seconds)}`
 }
