@@ -15,7 +15,21 @@ class Disturb {
     this.tray = new DisturbTray(menubar.tray)
   }
 
-  public handleClick = async () => {
+  public clearSnooze = async () => {
+    if (this.currentSnooze) {
+      global.clearInterval(this.currentSnooze)
+    }
+    this.currentSnooze = null
+    this.tray.disable()
+    await disable()
+  }
+
+  public attachListeners() {
+    this.menubar.tray.on("click", this.handleClick)
+    this.menubar.app.on("quit", this.clearSnooze)
+  }
+
+  private handleClick = async () => {
     if (this.currentSnooze) {
       await this.clearSnooze()
     } else {
@@ -31,20 +45,6 @@ class Disturb {
         }
       }, oneSecond)
     }
-  }
-
-  public clearSnooze = async () => {
-    if (this.currentSnooze) {
-      global.clearInterval(this.currentSnooze)
-    }
-    this.currentSnooze = null
-    this.tray.disable()
-    await disable()
-  }
-
-  public attachListeners() {
-    this.menubar.tray.on("click", this.handleClick)
-    this.menubar.app.on("quit", this.clearSnooze)
   }
 }
 
