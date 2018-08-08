@@ -1,11 +1,13 @@
 {
   "name": "pomo-disturb",
   "version": "1.0.0",
-  "description": "",
+  "description": "A OSX tray app to use snoozing notifications as a pomodoro workflow",
+  "private": true,
   "main": "index.js",
   "scripts": {
     "start": "tsc && electron .",
-    "test": "tslint --project .",
+    "test": "npm run lint",
+    "lint": "tslint --project .",
     "prettier": "prettier --write {*,**/*}.ts",
     "build": "electron-packager . PomoDisturb --platform=darwin --arch=x64 --out package && electron-installer-dmg package/PomoDisturb-darwin-x64/PomoDisturb.app --out package PomoDisturb"
   },
@@ -13,7 +15,7 @@
     "semi": false
   },
   "keywords": [],
-  "author": "",
+  "author": "Nick Tomlin <nick.tomlin+npm@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "@sindresorhus/do-not-disturb": "^0.2.0",

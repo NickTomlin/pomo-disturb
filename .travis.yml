@@ -1,0 +1,13 @@
+language: node_js
+sudo: false
+before_deploy: npm i && npm run build
+deploy:
+  provider: releases
+  api_key:
+    secure: o2vqYMlTZxkxI5ksOQ7cTJN5w5WhokuaBsL19mgeUhPS/0vCheVzlBkv6EbYJKUcCRN64Mf9QhUuJz+ClsnB4ykmEJEqi6zYEevxnerHrFGav9/zMaMPdzRuh1oa53feXIsNdVUE+JBuMaP6hnPWTQsMoHhij1no6kPhotUT+cGRuR5VuNNHwDJMrJHfVF2UXYlq4c3+Cl1JBj9AhP7mzHY0bQw579pHm0XgEOuogRDzDuS9VrQI+X6hbtI7E9Ne6rqcSyCzWmTH1t1IVPLz6ACf/mWGlFTExQh7X9Z3cE+d2BftQZqDxEnbr47Eol5CSR4lymFiFHDG+vOiWhGRNmSAxj317wYztNpkRxk0umqa8zf4XS5MFPwGkiR+LICp+hsD+nDx+TDS3GvzVm1lm5wt/nDvTMka2Qe4ibQ+d5bPmcCPeiuOWVrV4ir0xukSqcNrZBheYsyULIYQWqkkEcOFUvPGthxD1FBN7HblqrNtVFEWHOu0pah+r/7N7v2WAL0lJIASsPnhc/58ch8lURvOqSm8m+f8DeYgJuro0qn8EI4QMYc66HpNY/5d9iCi33ExiG1FeW/b7++bgs8NDudHl2GAlVnTVZw0Qw8PZw0f9hBgHuZBnHRWRMrWNu4tfOzaZ1vUxXBHIE9616fcOtB+EbG5PKAoMlFRYX18+ig=
+  file: package/PomoDisturb.dmg
+  skip_cleanup: true
+  overwrite_files: true
+  on:
+    repo: NickTomlin/pomo-disturb
+    tags: true
