@@ -7,7 +7,7 @@
     "start": "tsc && electron .",
     "test": "tslint --project .",
     "prettier": "prettier --write {*,**/*}.ts",
-    "build": "electron-packager . PomoDisturb --platform=darwin --arch=x64"
+    "build": "electron-packager . PomoDisturb --platform=darwin --arch=x64 --out package && electron-installer-dmg package/PomoDisturb-darwin-x64/PomoDisturb.app --out package PomoDisturb"
   },
   "prettier": {
     "semi": false
@@ -21,6 +21,8 @@
   },
   "devDependencies": {
     "electron": "^2.0.5",
+    "electron-installer-dmg": "^2.0.0",
+    "electron-packager": "^12.1.0",
     "prettier": "^1.14.0",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.14.0",
