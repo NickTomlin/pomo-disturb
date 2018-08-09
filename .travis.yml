@@ -15,3 +15,6 @@ deploy:
   on:
     repo: NickTomlin/pomo-disturb
     tags: true
+after_deploy:
+  - git commit -m 'Rebuild GH Pages' --allow-empty 
+  - git push origin master
