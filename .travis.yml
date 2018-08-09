@@ -15,10 +15,9 @@ deploy:
     repo: NickTomlin/pomo-disturb
     tags: true
 after_deploy:
-  - echo "https://$GITHUB_ACCESS_TOKEN:x-oauth-basic@github.com"
-  - git checkout master
+  - git checkout $TRAVIS_BRANCH
   - git commit -m '[skip ci] - Rebuild GH Pages' --allow-empty
-  - git push origin master
+  - git push https://$GITHUB_ACCESS_TOKEN:x-oauth-basic@github.com/$TRAVIS_REPO_SLUG master
 env:
   global:
     secure: MzzuU8mA9jlOcbJKPmqLEfHwbfwe3IBLd0yK0X/L/jppOft6MRp/uQqWVlND1u5OeTnQsdnuV7Qa3KlEmERCe9YVXeIGZNvSpr89ww6WoYf6Qx0XvYm4zfzhx54kGwJGYopWSqAyw7P4M79f4vqVbVpHNjRTYtGQ6W4I0ep/DK4fZrnElSP3xgD7F039NimP+RUBTIUGOkI58JgRc78Xx2q6RjtRBrr7XOQytp/4BmuRD3ZLNmJzgYsjFlfZdcmuYSQjxUr5cHJYQifQuHsLRtiMkp+DeJauwA5szuxnOySPH7m3g5vibyikLnQe6yUl5YeL5H7qYXsE7IqSGZVAqMMfXyCMU2QPRx3bVuu3+zqr6/tkeCKOZlVdn9Ta86MuWrzLDTKJYQToeLkME0gcHkuFBvdt6w4mut2tl8L/DybLDyhfpZlXN152b7Z/6nFqrNkCSWP8LpeFhu5Gn2OAMQPblLQMwBUrI9nswsBLobSTYLEER+of7KhXlM+Z8K54WhqA2Si34PMGeFGvZLPt5Sem0ujSwLpwKKn9rr5OxiU5NRqx8PWHrSqaqAhKdCOdtypHoHZ2+L0KxAznPyrMtkKnJs7bY3KElu8wZGlD1LEH1nT9fNdNEz1lJKBybF3ZgbI/3/zb6E7bDUXj4y9qqvCNTAqwQ+oRs45LzIDYZr8=
