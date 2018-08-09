@@ -1,6 +1,3 @@
-Pomo Disturb
-===
-
 A OSX tray application that harnesses the power of the "Do not disturb" to create a distraction free pomodoro flow.
 
 Releases
