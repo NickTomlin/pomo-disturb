@@ -1,5 +1,4 @@
 language: node_js
-# because we need to package on osx
 os: osx
 node_js:
   - 10
@@ -8,7 +7,7 @@ before_deploy: npm i && npm run build
 deploy:
   provider: releases
   api_key:
-    secure: CVyYsRaccIp5VKvRsza7HHoIQVGRsnBE6wsUg+s0ZL4r4qoHLAr5/iH+HZw7RhHIFsHDhynbbDeOwk+mwNFrF+N5hJB1xLkRu8jkPyIp46EbdSVRFfYdr+80zKCD6GM1UNksmjxqIsuzvHmP4bGWyLryLkLXI6FqbxAsU3OTLQ5xIEI2Biy7ZZTz67uv1wSxNnWWsYgtxwZQTQwkc5HbM8UpP8a0eMtOEm4JUC+JEMBNwmm3RzqDgEWbHzaKME+sl+RiMT4J+yakdSV84DXSCASIoKI6MI7Y54a34/PC32WvxCh7k3WnM8qqhSc7O6lqcohdjHKaVtNzxgKbYnjpwipbQZ42yF7imssYFjILL36FhAnmv7IYcdHoCHq9i/h1fi7F7tIjlQnu3sTYGXBLVe3zCBGisjajb2kE91EMbh0Irg9OIQcu2gEKxxZ9np78HWpHFPnfK9sxb5g9wSvOBtK6zgL7B2Ycn0Zrruqb/7er5ScCMDQyj1No6a3G9dKGUBtzUz/mo1/c9Bznd1pQyecNXKBIPOboTO0P+nVKG2vkPQEsDgfP2xQocNiqELTnXDkEAGpVSw1w8crH/fmXx7Mdg8Ds8o8XxqmVurJW8VKffalcl6zRCUdUazm4ubDgIr7SD4jChYjI53BAU9ZGkb4cJcrBHy0xH5rG9j8LPbA=
+    secure: $GITHUB_ACCESS_TOKEN
   file: package/PomoDisturb.dmg
   skip_cleanup: true
   overwrite_files: true
@@ -16,5 +15,10 @@ deploy:
     repo: NickTomlin/pomo-disturb
     tags: true
 after_deploy:
-  - git commit -m 'Rebuild GH Pages' --allow-empty 
+  - echo "https://$GITHUB_ACCESS_TOKEN:x-oauth-basic@github.com"
+  - git checkout master
+  - git commit -m '[skip ci] - Rebuild GH Pages' --allow-empty
   - git push origin master
+env:
+  global:
+    secure: MzzuU8mA9jlOcbJKPmqLEfHwbfwe3IBLd0yK0X/L/jppOft6MRp/uQqWVlND1u5OeTnQsdnuV7Qa3KlEmERCe9YVXeIGZNvSpr89ww6WoYf6Qx0XvYm4zfzhx54kGwJGYopWSqAyw7P4M79f4vqVbVpHNjRTYtGQ6W4I0ep/DK4fZrnElSP3xgD7F039NimP+RUBTIUGOkI58JgRc78Xx2q6RjtRBrr7XOQytp/4BmuRD3ZLNmJzgYsjFlfZdcmuYSQjxUr5cHJYQifQuHsLRtiMkp+DeJauwA5szuxnOySPH7m3g5vibyikLnQe6yUl5YeL5H7qYXsE7IqSGZVAqMMfXyCMU2QPRx3bVuu3+zqr6/tkeCKOZlVdn9Ta86MuWrzLDTKJYQToeLkME0gcHkuFBvdt6w4mut2tl8L/DybLDyhfpZlXN152b7Z/6nFqrNkCSWP8LpeFhu5Gn2OAMQPblLQMwBUrI9nswsBLobSTYLEER+of7KhXlM+Z8K54WhqA2Si34PMGeFGvZLPt5Sem0ujSwLpwKKn9rr5OxiU5NRqx8PWHrSqaqAhKdCOdtypHoHZ2+L0KxAznPyrMtkKnJs7bY3KElu8wZGlD1LEH1nT9fNdNEz1lJKBybF3ZgbI/3/zb6E7bDUXj4y9qqvCNTAqwQ+oRs45LzIDYZr8=
