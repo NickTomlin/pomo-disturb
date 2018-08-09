@@ -1,7 +1,7 @@
 pomo-disturb :tomato:
 ===
 
-> :warning: _this isn't quite ready for primetime since i'm ironing out the app release story_. :warning:
+> :warning: This is alpha software, your mileage may vary :warning:
 
 A tiny menubar app to hack OSX's "do not disturb" into a pomodoro timer.
 
@@ -9,7 +9,7 @@ A tiny menubar app to hack OSX's "do not disturb" into a pomodoro timer.
 Todo
 ---
 
-- [ ] Automatic releases via travis
+- [x] Automatic releases via travis
 - [ ] Allow for customization
 - [ ] CLI hooks for folks using this in a custom workflow
 
